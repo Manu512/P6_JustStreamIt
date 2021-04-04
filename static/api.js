@@ -1,5 +1,57 @@
-
 let url = "http://127.0.0.1:8000/api/v1/titles/";
+
+
+class Categorie{
+  constructor(name=String) {
+    this.name = name;
+    this.list_movies = [];
+    this.pages_number = 1;
+  }
+
+    async Information(){
+      try {
+        const response = await axios.get(url + '?genre=' + this.name + '&page=' + this.pages_number + '&sort_by=-imdb_score');
+        console.log(response.data.next);
+        this.previous = response.data.previous;
+        this.next = response.data.next;
+        for (let i in response.data.results) {
+          let data = response.data.results[i];
+          let film = new Movie(data.id, data.image_url, data.title, data.genres);
+          this.list_movies.push(film);
+        }
+        try {
+          const response = await axios.get(this.next);
+            for (let i = 0; i < 2; i++){
+              let data = response.data.results[i];
+              let film = new Movie(data.id, data.image_url, data.title, data.genres);
+              this.list_movies.push(film);
+            }
+        }
+        catch (error){
+          console.error(error + " Error on second scan");
+        }
+
+      }
+      catch (error) {
+        console.error(error + " Error on first scan");
+      }
+
+      this.Display();
+
+      }
+
+    Display() {
+    for (let i = 0; i < this.list_movies.length; i++) {
+      let x = document.getElementsByClassName(this.name + "-item" + (i + 1));
+      let img = document.createElement("img");
+
+      // x[0].appendChild(a) = url + this.list_movies[i].id;
+      img.src = this.list_movies[i].url_image;
+      x[0].appendChild(img);
+    }
+  }
+
+}
 
 class Movie{
   constructor(id=String, url_image=String, title=String, genre=Array){
@@ -34,41 +86,19 @@ class Movie{
       this.result = response.data.reviews_from_critics;
       this.description = response.data.description;
           });
-}
-}
-
-let movies = [];
-retrieve_cat("Action");
-
-
-function retrieve_cat(genre=String){
-axios.get(url + '?genre=' + genre + '&sort_by=-imdb_score')
-  .then((response) => {
-/*    console.log(response.data);
-    console.log(response.status);*/
-    for (let i in response.data.results) {
-      data = response.data.results[i];
-      const film =  new Movie(data.id, data.image_url, data.title, data.genres);
-      movies.push(film);
-//      console.log(movies[i]);
-    }
-    display(movies);
-  });
-}
-
-
-function display() {
-for (i = 0; i < movies.length; i++) {
-  //console.log("carousel-item" + (i+1));
-  var x = document.getElementsByClassName("carousel-item" + (i+1));
-  //console.log(x);
-  x[0].innerHTML = movies[i].title;
-  var img =  document.createElement("img");
-  img.src = movies[i].url_image;
-  x[0].appendChild(img);
-  //console.log(movies[i].title);
+  }
 
 }
-}
+
+let categorie = ["", "Adventure", "Sci-Fi", "Action"];
+let Action = new Categorie("Action");
+let SciFi = new  Categorie("Sci-Fi");
+let Adventure = new Categorie("Adventure");
+let all = new Categorie("");
+
+Action.Information();
+SciFi.Information();
+Adventure.Information();
+all.Information();
 
 
