@@ -26,11 +26,13 @@ class TopMovie{
       img.src = this.movie.url_image;
       console.log(x);
       x[0].appendChild(img);
-      let info = document.createElement("div");
-      info.innerHTML = this.movie.description;
-      info.classList = "container_description";
-      x[0].parentNode.insertBefore(info);
 
+
+      let y = document.getElementsByClassName("container");
+      let description = document.createElement("div");
+      description.innerHTML = this.movie.long_description;
+      description.classList = "container_description";
+      y[0].appendChild(description);
 
     }
 }
@@ -123,9 +125,8 @@ let Adventure = new Categorie("Adventure");
 let all = new Categorie("");
 let first = new TopMovie(url);
 
-//console.log(Topmovie);
-first.Retrieve();
 
+first.Retrieve();
 Action.Information();
 SciFi.Information();
 Adventure.Information();
