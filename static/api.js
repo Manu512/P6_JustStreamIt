@@ -24,7 +24,6 @@ class TopMovie{
       let x = document.getElementsByClassName("container_image");
       let img = document.createElement("img");
       img.src = this.movie.url_image;
-      console.log(x);
       x[0].appendChild(img);
 
 
@@ -33,7 +32,6 @@ class TopMovie{
       description.innerHTML = this.movie.long_description;
       description.classList = "container_description";
       y[0].appendChild(description);
-
     }
 }
 
@@ -82,11 +80,9 @@ class Categorie{
     for (let i = 0; i < this.list_movies.length; i++) {
       let x = document.getElementsByClassName(this.name + "-item" + (i + 1));
       let img = document.createElement("img");
-      let a = document.createElement("a");
-      a.setAttribute('href', url + this.list_movies[i].id);
       img.src = this.list_movies[i].url_image;
-      x[0].appendChild(a);
-      a.appendChild(img);
+      x[0].appendChild(img);
+      modal_event();
     }
   }
 
@@ -117,6 +113,22 @@ class Movie{
   }
 
 }
+
+function modal_event() {
+  let movies = document.querySelectorAll("img");
+  console.log(movies);
+
+  for (let movie of movies){
+    console.log(movie);
+    movie.addEventListener("click", function() {
+    modal.style.display = "block";
+  }
+  );
+  }
+}
+
+
+
 
 let categorie = ["", "Adventure", "Sci-Fi", "Action"];
 let Action = new Categorie("Action");

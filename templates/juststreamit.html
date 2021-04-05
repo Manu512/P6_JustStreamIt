@@ -15,7 +15,37 @@
 </header>
         <section class="container">
                     <div class="container_image"></div>
+                    <div class="container_button"><button id="BestButton">Informations</button></div>
         </section>
+
+
+
+
+<!-- The Modal -->
+<div id="Modal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+      <div class="Modal_image"></div>
+      <div>
+          <ul>
+              <li class="Modal_Title">Le Titre du film</li>
+              <li class="Modal_genres">Le genre complet du film</li>
+              <li class="Modal_year">Sa date de sortie</li>
+              <li class="Modal_rated">Son Rated</li>
+              <li class="Modal_scored">Son score Imdb</li>
+              <li class="Modal_realisator">Son réalisateur</li>
+              <li class="Modal_actors">La liste des acteurs</li>
+              <li class="Modal_duration">Sa durée</li>
+              <li class="Modal_country">Le pays d’origine</li>
+              <li class="Modal_result">Le résultat au Box Office</li>
+              <li class="Modal_description">Le résumé du film</li>
+          </ul>
+      </div>
+  </div>
+
+</div>
 
         <section id="BestMovies" class="categorie">
             <h2 class="title">Films les mieux notés</h2>
@@ -69,30 +99,6 @@
         <footer>
             <p class="footer">Maquette - JustStreamIt</p>
         </footer>
-<!-- 
-        <script>
-            var slideIndex = [1,1];
-            var slideId = ["mySlides1", "mySlides2", "mySlides3", "SlideAction"]
-            showSlides(1, 0);
-            showSlides(1, 1);
-            showSlides(1, 2);
-            showSlides(1, 3);
-            
-            function plusSlides(n, no) {
-              showSlides(slideIndex[no] += n, no);
-            }
-            
-            function showSlides(n, no) {
-              var i;
-              var x = document.getElementsByClassName(slideId[no]);
-              if (n > x.length) {slideIndex[no] = 1}    
-              if (n < 1) {slideIndex[no] = x.length}
-              for (i = 0; i < x.length; i++) {
-                 x[i].style.display = "none";  
-              }
-              x[slideIndex[no]-1].style.display = "block";  
-            }
-            </script> -->
-
 </body>
+    <script src="../static/modal.js"></script>
 </html>
