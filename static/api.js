@@ -88,14 +88,8 @@ class Movie {
         return axios.get(url + this.id)
             .then((response) => {
                 this.genres = response.data.genres
-                this.release_date = response.data.year;
-                this.rate = response.data.rated;
                 this.imdb_score = response.data.imdb_score;
-                this.realisator = response.data.directors;
                 this.actors = response.data.actors;
-                this.time = response.data.duration;
-                this.country = response.data.countries;
-                this.result = response.data.reviews_from_critics;
                 this.description = response.data.description;
                 this.long_description = response.data.long_description;
             });
