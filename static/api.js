@@ -24,6 +24,9 @@ class TopMovie {
         img.src = this.movie.url_image;
         x[0].appendChild(img);
 
+        let z = document.getElementsByClassName("container_title");
+        z[0].innerHTML = this.movie.title;
+
         let y = document.getElementsByClassName("container");
         let description = document.createElement("div");
         description.innerHTML = this.movie.long_description;

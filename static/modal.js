@@ -28,7 +28,7 @@ function update_modal(id) {
   axios.get(url+id).then( (res) => {
     console.log(res);
     let i = document.getElementsByClassName("Modal_image");
-    i[0].nextElementSibling.src = res.data.image_url;
+    i[0].src = res.data.image_url;
     let x = document.getElementsByClassName("Modal");
     x[0].innerHTML = res.data.title;
     x[1].innerHTML = res.data.genres;
