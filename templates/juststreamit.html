@@ -8,95 +8,90 @@
     <title>JustStreamIt</title>
 </head>
 <body>
-<header>
-    <div class="logo">JustStreamIt</div>
-    <nav>
-        <a class="navigation-link" href="">Accueil</a><a class="navigation-link" href="">Catégories</a>
-    </nav>
-</header>
-<section class="container">
-    <div class="container_image"></div>
-    <div class="container_title"></div>
-    <div class="container_button"><button id="BestButton">Informations</button>
+    <header>
+        <div class="logo">JustStreamIt</div>
+        <nav>
+            <a class="navigation-link" href="">Accueil</a><a class="navigation-link" href="">Catégories</a>
+        </nav>
+    </header>
+    <section class="container">
+        <div class="container_image"></div>
+        <div class="container_title"></div>
+        <div class="container_button"><button id="BestButton">Informations</button>
+        </div>
+    </section>
+    <!-- The Modal -->
+    <div id="Modal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img class="Modal_image" src="#" alt="Image Movie">
+            <span class="Modal_Title">Titre : </span><span class="Modal">Le Titre du film</span><br>
+            <span class="Modal_genres">Genres : </span><span class="Modal">Le genre complet du film</span><br>
+            <span class="Modal_year">Date de sortie : </span><span class="Modal">Sa date de sortie</span><br>
+            <span class="Modal_rated">Rated : </span> <span class="Modal">Son Rated</span><br>
+            <span class="Modal_scored">Score IMBD : </span> <span class="Modal">Son score Imdb</span><br>
+            <span class="Modal_realisator">Réalisateurs : </span> <span class="Modal">Son réalisateur</span><br>
+            <span class="Modal_actors">Acteurs : </span> <span class="Modal">La liste des acteurs</span><br>
+            <span class="Modal_duration">Durée : </span> <span class="Modal">Sa durée</span><span> Minutes</span><br>
+            <span class="Modal_country">Pays : </span> <span class="Modal">Le pays d’origine</span><br>
+            <span class="Modal_result">Résultats Box Office : </span><span class="Modal">Le résultat au Box
+            Office</span><br>
+            <span class="Modal_description">Résumé du film : </span> <span class="Modal">Le résumé du film</span><br>
+        </div>
     </div>
-</section>
-
-<!-- The Modal -->
-<div id="Modal" class="modal">
-
-    <!-- Modal content -->
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <img class="Modal_image" src="" alt="Image Movie">
-        <span class="Modal_Title">Titre : </span><span class="Modal">Le Titre du film</span></br>
-        <span class="Modal_genres">Genres : </span><span class="Modal">Le genre complet du film</span></br>
-        <span class="Modal_year">Date de sortie : </span><span class="Modal">Sa date de sortie</span></br>
-        <span class="Modal_rated">Rated : </span> <span class="Modal">Son Rated</span></br>
-        <span class="Modal_scored">Score IMBD : </span> <span class="Modal">Son score Imdb</span></br>
-        <span class="Modal_realisator">Réalisateurs : </span> <span class="Modal">Son réalisateur</span></br>
-        <span class="Modal_actors">Acteurs : </span> <span class="Modal">La liste des acteurs</span></br>
-        <span class="Modal_duration">Durée : </span> <span class="Modal">Sa durée</span><span> Minutes</span></br>
-        <span class="Modal_country">Pays : </span> <span class="Modal">Le pays d’origine</span></br>
-        <span class="Modal_result">Résultats Box Office : </span><span class="Modal">Le résultat au Box
-        Office</span></br>
-        <span class="Modal_description">Résumé du film : </span> <span class="Modal">Le résumé du film</span></br>
-    </div>
-</div>
-
-
-<h2 class="title">Films les mieux notés</h2>
-<section id="BestMovies" class="categorie">
-    <div class="-item1 grid1"></div>
-    <div class="-item2 grid2"></div>
-    <div class="-item3 grid3"></div>
-    <div class="-item4 grid4"></div>
-    <div class="-item5 grid5"></div>
-    <div class="-item6 grid6"></div>
-    <div class="-item7 grid7"></div>
-    <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
-</section>
-<h2 class="title">Catégorie Aventures</h2>
-<section id="Aventures" class="categorie">
-    <div class="Adventure-item1 grid1"></div>
-    <div class="Adventure-item2 grid2"></div>
-    <div class="Adventure-item3 grid3"></div>
-    <div class="Adventure-item4 grid4"></div>
-    <div class="Adventure-item5 grid5"></div>
-    <div class="Adventure-item6 grid6"></div>
-    <div class="Adventure-item7 grid7"></div>
-    <a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
-</section>
-<h2 class="title">Catégorie Sci-Fi</h2>
-<section id="SciFi" class="categorie">
-    <div class="Sci-Fi-item1 grid1"></div>
-    <div class="Sci-Fi-item2 grid2"></div>
-    <div class="Sci-Fi-item3 grid3"></div>
-    <div class="Sci-Fi-item4 grid4"></div>
-    <div class="Sci-Fi-item5 grid5"></div>
-    <div class="Sci-Fi-item6 grid6"></div>
-    <div class="Sci-Fi-item7 grid7"></div>
-    <a class="prev" onclick="plusSlides(-1, 2)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1, 2)">&#10095;</a>
-</section>
-<h2 class="title">Catégorie Action</h2>
-<section id="Action" class="categorie">
-    <div class="Action-item1 grid1"></div>
-    <div class="Action-item2 grid2"></div>
-    <div class="Action-item3 grid3"></div>
-    <div class="Action-item4 grid4"></div>
-    <div class="Action-item5 grid5"></div>
-    <div class="Action-item6 grid6"></div>
-    <div class="Action-item7 grid7"></div>
-    <a class="prev" onclick="plusSlides(-1, 3)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1, 3)">&#10095;</a>
-</section>
-
-<footer>
-    <p class="footer">Maquette - JustStreamIt</p>
-</footer>
+    <h2 class="title">Films les mieux notés</h2>
+    <section id="BestMovies" class="categorie">
+        <div class="-item1 grid1"></div>
+        <div class="-item2 grid2"></div>
+        <div class="-item3 grid3"></div>
+        <div class="-item4 grid4"></div>
+        <div class="-item5 grid5"></div>
+        <div class="-item6 grid6"></div>
+        <div class="-item7 grid7"></div>
+        <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+    </section>
+    <h2 class="title">Catégorie Aventures</h2>
+    <section id="Aventures" class="categorie">
+        <div class="Adventure-item1 grid1"></div>
+        <div class="Adventure-item2 grid2"></div>
+        <div class="Adventure-item3 grid3"></div>
+        <div class="Adventure-item4 grid4"></div>
+        <div class="Adventure-item5 grid5"></div>
+        <div class="Adventure-item6 grid6"></div>
+        <div class="Adventure-item7 grid7"></div>
+        <a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
+    </section>
+    <h2 class="title">Catégorie Sci-Fi</h2>
+    <section id="SciFi" class="categorie">
+        <div class="Sci-Fi-item1 grid1"></div>
+        <div class="Sci-Fi-item2 grid2"></div>
+        <div class="Sci-Fi-item3 grid3"></div>
+        <div class="Sci-Fi-item4 grid4"></div>
+        <div class="Sci-Fi-item5 grid5"></div>
+        <div class="Sci-Fi-item6 grid6"></div>
+        <div class="Sci-Fi-item7 grid7"></div>
+        <a class="prev" onclick="plusSlides(-1, 2)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, 2)">&#10095;</a>
+    </section>
+    <h2 class="title">Catégorie Action</h2>
+    <section id="Action" class="categorie">
+        <div class="Action-item1 grid1"></div>
+        <div class="Action-item2 grid2"></div>
+        <div class="Action-item3 grid3"></div>
+        <div class="Action-item4 grid4"></div>
+        <div class="Action-item5 grid5"></div>
+        <div class="Action-item6 grid6"></div>
+        <div class="Action-item7 grid7"></div>
+        <a class="prev" onclick="plusSlides(-1, 3)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, 3)">&#10095;</a>
+    </section>
+    <footer>
+        <p class="footer">Maquette - JustStreamIt</p>
+    </footer>
+    <script src="../static/modal.js"></script>
+    <script src="../static/slide.js"></script>
 </body>
-<script src="../static/modal.js"></script>
-<script src="../static/slide.js"></script>
 </html>
