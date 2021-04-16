@@ -1,0 +1,198 @@
+body {
+  background-color: #3e3e3e;
+  color: #ffffff;
+  margin: 0;
+}
+
+a {
+  color: white;
+}
+
+header {
+  color: white;
+  padding: 15px;
+  font-size: 35px;
+  margin-bottom: 55px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr repeat(7, 1fr) 1fr;
+  grid-template-rows: 1fr 0.5fr 2fr;
+  grid-template-areas: "gauche image title title title title title title droit" "gauche image button button button button button button droit" "gauche image description description description description description description droit";
+}
+.container_title {
+  text-align: center;
+  grid-area: title;
+  font-size: 2rem;
+}
+.container_image {
+  grid-area: image;
+  text-align: center;
+}
+.container_button {
+  grid-area: button;
+  text-align: center;
+  vertical-align: center;
+}
+.container_description {
+  grid-area: description;
+  margin: 20px;
+}
+
+.title {
+  text-align: center;
+}
+
+.categorie {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  padding-bottom: 20px;
+}
+.categorie > .grid1 {
+  grid-area: item1;
+  display: inherit;
+}
+.categorie > .grid2 {
+  grid-area: item2;
+  display: inherit;
+}
+.categorie > .grid3 {
+  grid-area: item3;
+  display: inherit;
+}
+.categorie > .grid4 {
+  grid-area: item4;
+  display: inherit;
+}
+.categorie > .grid5 {
+  grid-area: item5;
+  display: none;
+}
+.categorie > .grid6 {
+  grid-area: item6;
+  display: none;
+}
+.categorie > .grid7 {
+  grid-area: item7;
+  display: none;
+}
+
+.footer {
+  text-align: center;
+}
+
+nav {
+  position: absolute;
+  top: 5px;
+  right: 50px;
+}
+nav > .navigation-link {
+  font-size: 2rem;
+  display: block;
+  color: white;
+  float: left;
+  margin: 10px;
+}
+
+.logo {
+  position: absolute;
+  top: 5px;
+  left: 50px;
+  font-size: 3rem;
+  margin: 10px;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  display: flex;
+  align-self: center;
+  cursor: pointer;
+  position: absolute;
+  width: auto;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 36px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "prev button" to the left */
+.prev {
+  left: 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  grid-area: droit;
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  display: block;
+  background-color: darkgray;
+  position: relative;
+  top: 100px;
+  width: 60%;
+  min-width: 800px;
+  margin: auto;
+  padding: 20px;
+  border: 5px solid #49505e;
+  overflow: auto;
+}
+
+.Modal_image {
+  float: right;
+  padding: 0 15px 0 0;
+}
+
+/* The Close Button */
+.close {
+  float: right;
+  color: #ea0505;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=style.css.map */
