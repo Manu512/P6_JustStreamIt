@@ -100,7 +100,7 @@ class Movie {
 
 }
 
-function modal_event() {
+function modal_event_add() {
     let movies = document.querySelectorAll("img");
     for (let movie of movies) {
         movie.addEventListener("click", function (active) {
@@ -119,5 +119,9 @@ let first = new TopMovie(url);
 
 Promise.all([Action.Information(), SciFi.Information(), Adventure.Information(), first.Retrieve(), all.Information()])
     .then(() => {
-        modal_event();
+        modal_event_add();
+        new Carousel(document.querySelector('#BestMovies'))
+        new Carousel(document.querySelector('#Aventures'))
+        new Carousel(document.querySelector('#SciFi'))
+        new Carousel(document.querySelector('#Action'))
     });

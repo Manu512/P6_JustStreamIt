@@ -1,35 +1,74 @@
-var slideIndex = [[1,2,3,4],[1,2,3,4],[1,2,3,4],[1,2,3,4]];
-/* Class the members of each slideshow group with different CSS classes */
-var slideId = ["BestMovies", "Aventures", "SciFi", "Action"]
+class Carousel {
 
-
-function plusSlides(n, no) {
-    if (n > 0) {
-        if (slideIndex[no][0] < slideIndex[no].length) {
-            for (i = 0; i < slideIndex[no].length; i++) {
-                slideIndex[no][i]++;
-            }
-        }
+    /**
+     * @param {Element} element
+     * @param {{slideToScroll: number, slidesVisible: number}} options
+     */
+    constructor(element, options = {}) {
+        this.element = element
+        this.options = Object.assign({}, {
+            slidesToScroll: 1,
+            slidesVisible: 4
+        }, options)
+        let children = [].slice.call(element.children)
+        this.currentItem = 0
+        this.root = this.createDivWithClass('carousel')
+        this.container = this.createDivWithClass('carousel_container')
+        this.root.appendChild(this.container)
+        this.element.appendChild(this.root)
+        this.items = children.map((child) => {
+            let item = this.createDivWithClass('carousel_item')
+            item.appendChild(child)
+            this.container.appendChild(item)
+            return item
+        })
+        this.setStyle()
+        this.createNavigation()
     }
-    if (n < 0) {
-        if (slideIndex[no][0] > 1) {
-            for (i = 0; i < slideIndex[no].length; i++) {
-                slideIndex[no][i]--;
-            }
-        }
+
+    /**
+     * @param {string} className
+     * @returns {HTMLElement}
+     */
+    createDivWithClass(className) {
+        let div = document.createElement('div')
+        div.setAttribute('class', className)
+        return div
     }
-    showSlides(slideIndex[no],no);
-}
 
-function showSlides(n, no) {
-  var i;
-  var x = document.getElementById(slideId[no]).getElementsByTagName("div");
+    createNavigation() {
+        let nextButton = this.createDivWithClass('next')
+        let prevButton = this.createDivWithClass('prev')
+        nextButton.innerHTML = "&#10095;"
+        prevButton.innerHTML = "&#10094;"
+        this.root.appendChild(nextButton)
+        this.root.appendChild(prevButton)
+        nextButton.addEventListener('click', this.next.bind(this))
+        prevButton.addEventListener('click', this.prev.bind(this))
+    }
 
-  for (i=0; i < x.length; i++) {
-      if (n.includes(i+1)) {
-          x[i].style.display = "flex";
-      } else {
-          x[i].style.display = "none";
-      }
-  }
+    setStyle() {
+        let ratio = this.items.length / this.options.slidesVisible
+        this.container.style.width = (ratio * 100) + "%"
+        this.items.forEach(item => item.style.width = ((100 / this.options.slidesVisible) / ratio) + "%")
+    }
+
+    next() {
+        this.gotoItem(this.currentItem + this.options.slidesToScroll)
+    }
+
+    prev() {
+        this.gotoItem(this.currentItem - this.options.slidesToScroll)
+    }
+
+    gotoItem(index) {
+        if (index < 0) {
+            index = this.items.length - this.options.slidesVisible
+        } else if (index >= this.items.length || (this.items[this.currentItem + this.options.slidesVisible] === undefined && index > this.currentItem)) {
+            index = 0
+        }
+        let translateX = index * -100 / this.items.length
+        this.container.style.transform = 'translate3d(' + translateX + '%, 0 , 0)'
+        this.currentItem = index
+    }
 }
