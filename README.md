@@ -7,7 +7,7 @@ Suivez les instructions du README OCMovies-API.
 
 ## Mise en place du site :
 
-Installer les répertoires static et templates dans un serveur Web (Apache/NGINX/Flask/Django)
+Installer les répertoires 'static' et 'templates' dans un serveur Web (Apache/NGINX/Flask/Django)
 
 Accéder à l'URL de la page juststreamit.html du serveur web.
 Dans notre exemple via le serveur flask et sa configuration http://127.0.0.1:5000/
